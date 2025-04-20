@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>avg428_vehicle_interface</name>
+  <version>0.1.0</version>
+  <description>CAN-based vehicle interface for Autoware Universe</description>
+
+  <maintainer email="iumida0918@gmail.com">ace428</maintainer>
+  <license>Apache-2.0</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <depend>rclcpp</depend>
+  <depend>autoware_vehicle_msgs</depend>
+
+  <test_depend>ament_lint_auto</test_depend>
+  <test_depend>ament_lint_common</test_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
+
