@@ -5,9 +5,10 @@ if(CMAKE_COMPILER_IS_GNUCXX OR CMAKE_CXX_COMPILER_ID MATCHES "Clang")
   add_compile_options(-Wall -Wextra -Wpedantic)
 endif()
 
-# 查找必要套件
+# 找到必要套件
 find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
+find_package(std_msgs REQUIRED)                    # <-- 新增
 find_package(autoware_vehicle_msgs REQUIRED)
 find_package(autoware_control_msgs REQUIRED)
 
@@ -17,6 +18,7 @@ add_executable(vehicle_interface src/vehicle_interface.cpp)
 # 連結相依套件
 ament_target_dependencies(vehicle_interface
   rclcpp
+  std_msgs                                       # <-- 新增
   autoware_vehicle_msgs
   autoware_control_msgs
 )
@@ -27,7 +29,7 @@ install(TARGETS
   DESTINATION lib/${PROJECT_NAME}
 )
 
-# 安裝 launch 檔案
+# 安裝 launch 檔案（如果有）
 install(DIRECTORY launch
   DESTINATION share/${PROJECT_NAME}
 )
